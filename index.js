@@ -124,7 +124,11 @@ try {
     hoodieServer = relative('./')
   } else {
     // with a nested npm@2 install
-    hoodieServer = relative('hoodie/node_modules/hoodie-server')
+    try {
+      hoodieServer = relative('hoodie/node_modules/hoodie-server')
+    } catch (e) {
+      log.error('env', 'No Hoodie app found')
+    }
   }
 }
 
