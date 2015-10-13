@@ -86,14 +86,18 @@ if (argv.help) {
 }
 
 if (argv.version) {
-  var pkg = require('../package.json')
-  console.log(pkg.version, '\n')
-  _.forEach(pkg.dependencies, function (value, key) {
-    if (!/^hoodie/.test(key)) return
+  try {
+    var pkg = relative('hoodie/package.json')
+    console.log(pkg.version, '\n')
+    _.forEach(pkg.dependencies, function (value, key) {
+      if (!/^hoodie/.test(key)) return
 
-    console.log(key + ': ' + value)
-  })
-  process.exit(0)
+      console.log(key + ': ' + value)
+    })
+    process.exit(0)
+  } catch (e) {
+    process.exit(1)
+  }
 }
 
 var options = rc('hoodie', {}, _.mapKeys(_.omit(argv, ['argv']), function (value, key) {
