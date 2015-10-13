@@ -12,6 +12,8 @@ var rc = require('rc')
 var relative = require('require-relative')
 var semver = require('semver')
 
+var useEmoji = process.platform === 'darwin'
+
 log.style = {
   silly: {inverse: true, bold: true},
   verbose: {fg: 'brightBlue', bold: true},
@@ -24,15 +26,15 @@ log.style = {
 log.prefixStyle = {fg: 'magenta'}
 log.headingStyle = {}
 log.disp = {
-  silly: 'Sill' + emoji.get('mega') + ' ',
-  verbose: 'Verb' + emoji.get('speech_balloon') + ' ',
-  info: 'Info' + emoji.get('mag') + ' ',
-  http: 'HTTP' + emoji.get('link') + ' ',
-  warn: 'Warn' + emoji.get('zap') + ' ',
-  error: 'Err!' + emoji.get('anger') + ' ',
+  silly: 'Sill' + (useEmoji ? emoji.get('mega') + ' ' : ''),
+  verbose: 'Verb' + (useEmoji ? emoji.get('speech_balloon') + ' ' : ''),
+  info: 'Info' + (useEmoji ? emoji.get('mag') + ' ' : ''),
+  http: 'HTTP' + (useEmoji ? emoji.get('link') + ' ' : ''),
+  warn: 'Warn' + (useEmoji ? emoji.get('zap') + ' ' : ''),
+  error: 'Err!' + (useEmoji ? emoji.get('anger') + ' ' : ''),
   silent: 'silent'
 }
-log.heading = emoji.get('dog') + ' Hoodie'
+log.heading = (useEmoji ? emoji.get('dog') + ' ' : '') + 'Hoodie'
 
 if (semver.lt(process.versions.node, '4.0.0')) {
   log.error('env', 'A node version >=4 is required to run Hoodie')
@@ -138,7 +140,7 @@ hoodieServer(options, function (err, server, env_config) {
   log.verbose('app', 'Starting')
 
   server.start(function () {
-    console.log(emoji.get('dog') + ' Your Hoodie app has started on ' + url.format(env_config.app))
+    console.log((useEmoji ? emoji.get('dog') + ' ' : '') + 'Your Hoodie app has started on ' + url.format(env_config.app))
     log.verbose('app', 'Serving admin-dashboard at ' + url.format(env_config.admin))
     log.verbose('app', 'Database running at ' + url.format(_.omit(env_config.db, 'auth')))
   })
