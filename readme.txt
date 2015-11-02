@@ -10,7 +10,6 @@ Usage: npm start -- [options...]
      --bind-address   Address that Hoodie binds to (optional) Default: 127.0.0.1
      --www            WWW path (optional) Default: path.join(options.path, 'www')
 
-     --admin-port     Port-number to run the admin-dashboard on (optional)
      --admin-password Password for the admin-dashboard (required on first run)
 
      --db-port        Port-number to run the PouchDB Server on (optional)
