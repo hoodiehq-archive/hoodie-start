@@ -21,6 +21,16 @@
   },
   "license": "Apache-2.0",
   "main": "index.js",
+  "publishConfig": {
+    "tag": "next"
+  },
+  "release": {
+    "branch": "next",
+    "fallbackTags": {
+      "next": "latest"
+    }
+
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/hoodiehq/hoodie-start.git"
