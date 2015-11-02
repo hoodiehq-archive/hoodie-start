@@ -141,7 +141,9 @@ hoodieServer(options, function (err, server, env_config) {
 
   server.start(function () {
     console.log((useEmoji ? emoji.get('dog') + ' ' : '') + 'Your Hoodie app has started on ' + url.format(env_config.app))
-    log.verbose('app', 'Serving admin-dashboard at ' + url.format(env_config.admin))
+    if (env_config.admin.host) {
+      log.verbose('app', 'Serving admin-dashboard at ' + url.format(env_config.admin))
+    }
     log.verbose('app', 'Database running at ' + url.format(_.omit(env_config.db, 'auth')))
   })
 })
