@@ -7,7 +7,7 @@
     "lodash": "^3.10.1",
     "node-emoji": "^1.0.3",
     "nopt": "^3.0.4",
-    "npmlog": "^1.2.1",
+    "npmlog": "^2.0.0",
     "rc": "^1.1.2",
     "require-relative": "^0.8.7",
     "semver": "^5.0.3"
@@ -29,7 +29,6 @@
     "fallbackTags": {
       "next": "latest"
     }
-
   },
   "repository": {
     "type": "git",
