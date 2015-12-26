@@ -129,6 +129,7 @@ try {
       hoodieServer = relative('hoodie/node_modules/hoodie-server')
     } catch (e) {
       log.error('env', 'No Hoodie app found')
+      process.exit(1)
     }
   }
 }
