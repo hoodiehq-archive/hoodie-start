@@ -4,7 +4,7 @@
   "author": "Stephan Bönnemann <stephan@boennemann.me> (http://boennemann.me/)",
   "bin": "index.js",
   "dependencies": {
-    "lodash": "^3.10.1",
+    "lodash": "^4.0.0",
     "node-emoji": "^1.0.3",
     "nopt": "^3.0.4",
     "npmlog": "^1.2.1",
@@ -29,7 +29,6 @@
     "fallbackTags": {
       "next": "latest"
     }
-
   },
   "repository": {
     "type": "git",
