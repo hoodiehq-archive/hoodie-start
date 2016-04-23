@@ -114,23 +114,16 @@ var hoodieServer
 try {
   // with a flat npm@3 install,
   // or when run from inside `hoodie`
-  hoodieServer = relative('hoodie-server')
+  hoodieServer = relative('@hoodie/server')
 } catch (e) {
   if (e.code !== 'MODULE_NOT_FOUND') throw e
 
-  var appPkg = relative('./package.json')
-
-  if (appPkg.name === 'hoodie-server') {
-   // run from inside `hoodie-server`
-    hoodieServer = relative('./')
-  } else {
-    // with a nested npm@2 install
-    try {
-      hoodieServer = relative('hoodie/node_modules/hoodie-server')
-    } catch (e) {
-      log.error('env', 'No Hoodie app found')
-      process.exit(1)
-    }
+  // with a nested npm@2 install
+  try {
+    hoodieServer = relative('hoodie/node_modules/@hoodie/server')
+  } catch (e) {
+    log.error('env', 'No Hoodie app found')
+    process.exit(1)
   }
 }
 
