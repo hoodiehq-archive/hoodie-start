@@ -1,7 +1,7 @@
 {
-  "name": "hoodie-start",
+  "name": "@hoodie/start",
   "description": "start your hoodie app",
-  "author": "Stephan Bönnemann <stephan@boennemann.me> (http://boennemann.me/)",
+  "author": "The Hoodie Community",
   "bin": "index.js",
   "dependencies": {
     "lodash": "^4.0.1",
@@ -22,13 +22,7 @@
   "license": "Apache-2.0",
   "main": "index.js",
   "publishConfig": {
-    "tag": "next"
-  },
-  "release": {
-    "branch": "next",
-    "fallbackTags": {
-      "next": "latest"
-    }
+    "access": "public"
   },
   "repository": {
     "type": "git",
